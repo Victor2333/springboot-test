@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    addresses: 10.0.81.80
+    username: rabbitmq
+    password: rabbitmq
+    listener:
+#      simple:
+#        acknowledge-mode: manual
+      direct:
+        acknowledge-mode: auto
