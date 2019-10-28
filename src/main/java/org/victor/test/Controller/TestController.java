@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.victor.test.POJO.ITest;
+import org.victor.test.TestConstant;
 
 @Slf4j
 @RestController
@@ -21,8 +22,8 @@ public class TestController {
     public Object hello(@RequestBody ITest testAbstract) {
         log.info(testAbstract.toString());
 
-        for (int i = 0; i < 10; i++) {
-            rabbitTemplate.convertAndSend("exchange.fanout", "", testAbstract);
+        for (int i = 0; i < 5; i++) {
+            rabbitTemplate.convertAndSend(TestConstant.EXCHANGE_NAME, TestConstant.DIRECT_QUEUE, testAbstract);
         }
         return testAbstract.getData();
     }

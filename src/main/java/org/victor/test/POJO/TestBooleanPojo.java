@@ -12,4 +12,9 @@ public class TestBooleanPojo implements ITest<Boolean> {
     }
 
     Boolean data;
+
+    @Override
+    public String getDataType() {
+        return "Boolean";
+    }
 }

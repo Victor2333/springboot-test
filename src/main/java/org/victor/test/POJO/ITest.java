@@ -12,4 +12,5 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 public interface ITest<T> {
     T getData();
     void setData(T t);
+    String getDataType();
 }
