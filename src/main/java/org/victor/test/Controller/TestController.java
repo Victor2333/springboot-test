@@ -22,7 +22,7 @@ public class TestController {
     public Object hello(@RequestBody ITest testAbstract) {
         log.info(testAbstract.toString());
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 100000; i++) {
             rabbitTemplate.convertAndSend(TestConstant.EXCHANGE_NAME, TestConstant.DIRECT_QUEUE, testAbstract);
         }
         return testAbstract.getData();
